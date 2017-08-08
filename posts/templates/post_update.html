@@ -1,0 +1,16 @@
+{% include "base.html" %}
+
+{% block title_name %}
+		<h1>The Post {{title}} Page</h1>
+{% endblock title_name %}
+
+{% block mainBody %}
+
+	<form action="{% url 'posts:update' post_slug=instance.slug %}" method="POST">
+		{%csrf_token%}
+		{{form.as_p}}
+		<input type="submit" name="Update Post">
+	</form>
+
+{% endblock mainBody %}
+	

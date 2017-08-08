@@ -1,0 +1,15 @@
+{% include "base.html" %}
+
+{% block title_name %}
+ 	{{title}}
+{% endblock title_name %}
+ 
+{% block mainBody %}
+	<form action="{% url 'posts:create' %}" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{form.as_p}}
+	<input type="submit" name="Create Post">
+	</form>
+{% endblock mainBody %}
+
+	
